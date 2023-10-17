@@ -1,0 +1,420 @@
+<html>
+
+<head>
+    <link href="./animate.css" rel="stylesheet"/>
+    <style>
+        /*
+        GLOBAL VARIABLES
+        */
+        :root {
+            --input-color: #99a3ba;
+            --input-border: #cdd9ed;
+            --input-background: #fff;
+            --input-placeholder: #cbd1dc;
+            --input-border-focus: #275efe;
+            --group-color: var(--input-color);
+            --group-border: var(--input-border);
+            --group-background: #eef4ff;
+            --group-color-focus: #fff;
+            --group-border-focus: var(--input-border-focus);
+            --group-background-focus: #678efe;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-family: 'Mukta Malar', Arial;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+    <style>
+        /*
+        Leave 30% size for window animations.
+        */
+        brome-menu {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+            background: white;
+            border-radius: 10px;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 5px;
+            overflow: hidden;
+        }
+        tabs{
+            display: flex;
+            width: 100%;
+            background-color: lightcoral;
+        }
+        tab{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            background-color: red;
+        }
+        tab-selectors{
+            width: 100%;
+            height: 10%;
+            margin-bottom: -5px; 
+            display: flex;
+            background-color: lightgreen;
+        }
+        tab-select{
+            height: 100%;
+            display: flex;
+            background-color: green;
+            transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98), box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+        }
+        tab-select:hover {
+            transform: scale(1.2);
+            box-shadow: 0 9px 47px 11px rgba(51, 51, 51, 0.18);
+        }
+    </style>
+    <style>
+        .icon_holder_section {
+            display: flex;
+            width: 100%;
+            gap: 5px;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .icon_holder {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            border: 1px solid var(--input-border);
+        }
+    </style>
+    <style>
+        .leaderboard {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .leaderboard header {
+            --start: 15%;
+            height: 130px;
+            background-image: repeating-radial-gradient(circle at var(--start), transparent 0%, transparent 10%, rgba(54, 89, 219, .33) 10%, rgba(54, 89, 219, .33) 17%), linear-gradient(to right, #5b7cfa, #3659db);
+            color: #fff;
+            position: relative;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .leaderboard header .leaderboard__title {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            right: calc(var(--start) * .75);
+            transform: translateY(-50%);
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .leaderboard header .leaderboard__title span {
+            display: block;
+        }
+
+        .leaderboard header .leaderboard__title--top {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 6.5px;
+        }
+
+        .leaderboard header .leaderboard__title--bottom {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 3.55px;
+            opacity: 0.65;
+            transform: translateY(-2px);
+        }
+
+        .leaderboard header .leaderboard__icon {
+            fill: #fff;
+            opacity: 0.35;
+            width: 50px;
+            position: absolute;
+            top: 50%;
+            left: var(--start);
+            transform: translate(-50%, -50%);
+        }
+
+        .leaderboard__profiles {
+            background-color: #fff;
+            border-radius: 0 0 12px 12px;
+            padding: 15px 15px 20px;
+            display: grid;
+            row-gap: 8px;
+            width: 500px;
+            visibility: hidden;
+        }
+
+        .leaderboard__profile {
+            display: grid;
+            grid-template-columns: 1fr 10fr 1fr;
+            align-items: center;
+            padding: 10px 30px 10px 10px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98), box-shadow 0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98);
+            background-color: #fff;
+        }
+
+        .leaderboard__profile:hover {
+            transform: scale(1.2);
+            box-shadow: 0 9px 47px 11px rgba(51, 51, 51, 0.18);
+        }
+
+        .leaderboard__picture {
+            max-width: 100%;
+            width: 30px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 10px #ebeef3, 0 0 0 22px #f3f4f6;
+        }
+
+        .leaderboard__name {
+            color: #979cb0;
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 0.64px;
+            margin-left: 12px;
+        }
+
+        .leaderboard__value {
+            color: #35d8ac;
+            font-weight: 700;
+            font-size: 20px;
+            text-align: right;
+        }
+
+        .leaderboard__value>span {
+            opacity: 0.8;
+            font-weight: 600;
+            font-size: 13px;
+            margin-left: 3px;
+        }
+
+        .leaderboard {
+            box-shadow: 0 0 40px -10px rgba(0, 0, 0, .4);
+        }
+    </style>
+
+    <style>
+        .form-field {
+            display: block;
+            width: 100%;
+            padding: 8px 16px;
+            line-height: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: inherit;
+            border-radius: 6px;
+            -webkit-appearance: none;
+            color: var(--input-color);
+            border: 1px solid var(--input-border);
+            background: var(--input-background);
+            transition: border 0.3s ease;
+        }
+
+        .form-field::placeholder {
+            color: var(--input-placeholder);
+        }
+
+        .form-field:focus {
+            outline: none;
+            border-color: var(--input-border-focus);
+        }
+
+        .form-group {
+            position: relative;
+            display: flex;
+            width: 100%;
+        }
+
+        .form-group>span,
+        .form-group .form-field {
+            white-space: nowrap;
+            display: block;
+        }
+
+        .form-group>span:not(:first-child):not(:last-child),
+        .form-group .form-field:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+
+        .form-group>span:first-child,
+        .form-group .form-field:first-child {
+            border-radius: 6px 0 0 6px;
+        }
+
+        .form-group>span:last-child,
+        .form-group .form-field:last-child {
+            border-radius: 0 6px 6px 0;
+        }
+
+        .form-group>span:not(:first-child),
+        .form-group .form-field:not(:first-child) {
+            margin-left: -1px;
+        }
+
+        .form-group .form-field {
+            position: relative;
+            z-index: 1;
+            flex: 1 1 auto;
+            width: 1%;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .form-group>span {
+            cursor: default;
+            text-align: center;
+            padding: 8px 12px;
+            font-size: 14px;
+            line-height: 25px;
+            color: var(--group-color);
+            border: 1px solid var(--group-border);
+            transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+        }
+
+        .form-group:focus-within>span {
+            color: var(--group-color-focus);
+            background: var(--group-background-focus);
+            border-color: var(--group-border-focus);
+        }
+
+        html {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        * {
+            box-sizing: inherit;
+        }
+
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <brome-menu>
+
+        <div class="form-group" style="height: 30%;">
+            <input class="form-field" type="text" placeholder="Enter text to search or an url to open...">
+            <span id="search">Search</span>
+            <span id="settings">Settings</span>
+        </div>
+
+        <!--THE BOTTOM TAB MENU: -->
+        <tabs style="height: 60%;">
+            <tab style="visibility: hidden;">
+                <h1>1</h1>
+                <div class="icon_holder_section">
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+        
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+        
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+        
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+        
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+        
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+        
+                    <div class="icon_holder"></div>
+                    <div class="icon_holder"></div>
+                </div>
+            </tab>
+            <tab style="visibility: hidden;">
+                <h1>2</h1>
+                <main class="leaderboard__profiles">
+                    <article class="leaderboard__profile">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mark Zuckerberg"
+                            class="leaderboard__picture">
+                        <span class="leaderboard__name">Mark Zuckerberg</span>
+                        <span class="leaderboard__value">35.7<span>B</span></span>
+                    </article>
+            
+                    <article class="leaderboard__profile">
+                        <img src="https://randomuser.me/api/portraits/men/97.jpg" alt="Dustin Moskovitz"
+                            class="leaderboard__picture">
+                        <span class="leaderboard__name">Dustin Moskovitz</span>
+                        <span class="leaderboard__value">9.9<span>B</span></span>
+                    </article>
+            
+                    <article class="leaderboard__profile">
+                        <img src="https://randomuser.me/api/portraits/women/17.jpg" alt="Elizabeth Holmes"
+                            class="leaderboard__picture">
+                        <span class="leaderboard__name">Elizabeth Holmes</span>
+                        <span class="leaderboard__value">4.5<span>B</span></span>
+                    </article>
+            
+                    <article class="leaderboard__profile">
+                        <img src="https://randomuser.me/api/portraits/men/37.jpg" alt="Evan Spiegel" class="leaderboard__picture">
+                        <span class="leaderboard__name">Evan Spiegel</span>
+                        <span class="leaderboard__value">2.1<span>B</span></span>
+                    </article>
+                </main>
+            </tab>
+            <tab style="visibility: hidden;">
+                <h1>3</h1>
+            </tab>
+            <tab style="visibility: hidden;">
+                <h1>4</h1>
+            </tab>
+            <tab style="visibility: hidden;">
+                <h1>5</h1>
+            </tab>
+        </tabs>
+
+        <tab-selectors style="height: 10%;">
+            <tab-select></tab-select>
+            <tab-select></tab-select>
+            <tab-select></tab-select>
+            <tab-select></tab-select>
+            <tab-select></tab-select>
+        </tab-selectors>
+
+    </brome-menu>
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./brome-render.js"></script>
+</body>
+
+</html>
