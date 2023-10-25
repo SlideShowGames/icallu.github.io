@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap');
 
 body {
-    background-color: #1b1b1b;
+    background-color: #050376;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -10,7 +10,7 @@ nav {
     top: 0;
     left: 0;
     backdrop-filter: blur(10px) saturate(200%) brightness(70%);
-    color: #fff;
+    color: #FDFD2E;
     display: flex;
     height: 7vw;
     width: 100%;
