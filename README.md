@@ -1,5 +1,5 @@
 # SSG
-
+SEASON 1 REALESES NOVEMBER 4TH
 Subscribe to SSG!
 https://www.youtube.com/@SSG_Productions
 
