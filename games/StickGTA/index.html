@@ -1,43 +1,29 @@
 <!DOCTYPE HTML>
-<html>
-    <head>
-        <meta charset='utf8'>
-    </head>
-    <body>
-	<div id="container"> </div>
-<div id='ruffle'></div>
-        <script> src='https://slideshowgames.github.io/games/StickGTA"</script>
-<script src="games/StickGTA/ruffle.js"></script>
-    <script>
-        window.RufflePlayer = window.RufflePlayer || {};
-        window.addEventListener("load", (event) => {
-            const ruffle = window.RufflePlayer.newest();
-            const player = ruffle.createPlayer();
-            const container = document.getElementById("container"); 
-            container.appendChild(player);
-            player.load({
-                url: "games/StickGTA/stickrpg.swf", 
-                backgroundColor: "#000", 
-             });
-            player.style.width = "450px"; 
-            player.style.height = "450px";
-        });
-    </script>
-        <script>
-var swfobject = {};
+<HTML>
+	<head>
+	 <meta charset="UTF-8">
+   	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   	 <title> SlideShowGames </title>
+   	 <link rel="stylesheet" href="/main.css">
+   	 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
+	</head>
+	<body>
+		<embed src="somefilename.swf" width="550" height="400"> </embed>
 
-swfobject.embedSWF = function(url, cont, width, height){
-    var ruffle = window.RufflePlayer.newest(),
-        player = Object.assign(document.getElementById(cont).appendChild(ruffle.createPlayer()), {
-            width: width,
-            height: height,
-            style: 'width: ' + width + 'px; height: ' + height + 'px',
-        });
-    
-    player.load({ url: url });
-}
+                 <XMP>
+            <table width="100%" class="ex" cellspacing="0" border="1"> 
+               <tr> 
+                  <td>
+                    <object width="550" height="400">
+                       <param name="movie" value="stickrpg.swf.swf">
+                       <embed src="games/StickGTA/stickrpg.swf" width="550" height="400">
+                       </embed>
+                    </object>
+                  </td> 
+               </tr>
+            </table> 
+            </XMP></body>
+	
 
-swfobject.embedSWF('https://e9x.github.io/ruffle-example/1on1soccer_24.swf', 'ruffle', 500, 500);
-        </script>
-    </body>
-</html>
+</HTML>
