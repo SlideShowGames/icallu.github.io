@@ -9,38 +9,234 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
 </head>
 <body>
-    <nav>
-        <img src="images/108354503.png" alt="logo">
+    <py-repl>import turtle
+def HighLands():
+ print(""
+"█░█ █ █▀▀ █░█ █░░ ▄▀█ █▄░█ █▀▄ █▀"
+"█▀█ █ █▄█ █▀█ █▄▄ █▀█ █░▀█ █▄▀ ▄█ BETA DEMO")
+ Play = input("Press E to Play!")
+ if Play == "E":
+   d1 = input("You wake up in a grassy field next to a chicken you do what?")
+   if d1 == "kill it":
+     print("You killed the chicken and ate it... Chicken Ending")
+     OSmenu()
+   if d1 == "make it a pet":
+     input("You made it your pet! ")
+     print("Pet Gained! Pet level: 1 atk: 10 hp: 75")
+     print("Level gained! You are now level 2!")
+     d2 = input("as you pet the chicken you see a cave do you go in?")
+     if d2 == "no":
+      print("You don't go in and just walk home... somehow.")
+      print("just no... Ending")
+      OSmenu()
+     if d2 == "yes":
+      print("You walk into the cave, you find a sword and pick it up.")
+      print(" SWORD EARNED! atk: 25 hp: 250")
+      print(" XP GAINED 50! ----/____")
+      d3 = input("you find a dark elf who you have to fight to get futher into the cave. What is your first move? chicken or sword?")
+      if d3 == "sword":
+        print("you killed the dark elf causing the cave to be open.")
+        print("you find a portal. You go in and it takes you to the scotish HIGHLANDS!")
+        print("you uncover your eyes seeing the beatiful mountains. you look to the right and see a bunch of" "high elf towns on the ground and your house on the top of the mountain.")
+      d3_1 = input("you walk down the cave and you go to a high elf. He offers to give you a pet Rolof do you accept?")
+      if d3_1 == "yes":
+        print("you gained a new pet! ")
+        print("Pet gained! atk: 15 hp: 125 level: 2.4!")
+        print("XP GAINED 50! ----/____ YOU ARE NOW LEVEL 2")
+        fd = input("you go up to a mountain; you have to climb it to get to you house do you climb?")
+        if fd == "yes":
+          print("you climb the mountain and lose 50 heath but it no longer matters because with the help of your new pet you where able to climb back to your house and go to bed.....")
+          print("you wake up in the middle of the night and you remember that there are no elfs in scotland! that you see a portal. In it you see the lowlands of Sweden with people walking and your real house. ")
+          print("Thank you for playing the Highlands BETA demo please wait until the real game is out and also wait for the LOWLANDS! GOOD ENDING!" )
+          OSmenu()
+      if d3 == "chicken":
+        print("you dealt 1 dmp the elf now has 29 heath.")
+        d3_2 = input("your heath is now 75 after the elf hit you. pick another unused move.")
+        if d3_2 == "sword":
+          print("you killed the dark elf causing the cave to be open.")
+          print("you find a portal. You go in and it takes you to the scotish HIGHLANDS!")
+          print("you uncover your eyes seeing the beatiful mountains. you look to the right and see a bunch of high elf towns on the ground and your house on the top of the mountain.")
+          d3_1 = input("you walk down the cave and you go to a high elf. He offers to give you a pet Rolof do you accept?")
+          if d3_1 == "no":
+            print("you did not accept the pet, you tried to climb the maountain to get to your house but you fail. You died! bad ending!")
+            OSmenu()
+          if fd == "no":
+            print("did not climb the mountain knowing something is up about this place. you go to the shores and you build a raft to Sweden where you find your real house. You still don't know what happened that day but you found out a mirrored middle earth exists. TRUE ENDING!")
+            OSmenu()
+def IDE():
+    print("Welcome to the code for fun IDE your text cannot be edited when you are done")
+    code = input("if you have a code type 1")
+    one = input("1")
+    two = input("2")
+    three = input("3")
+    four = input("4")
+    five = input("5")
+    print(one, two, three, four, five)
+    OSmenu()
 
-         <p style="color:red;">hello my gamers it is I bradley stratton I will say more games coming soon also have good day and no get caught.</p>
-    </nav>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6049884042008401" crossorigin="anonymous"></script>
-    <div class="featured">
-          
-         </div>
-        </a>
-            </div>
-              </a>
-              </div>
-              </a>
-              </a>
-            
-    <div class="content">
+def notepad():
+    yesno = input("welcome to notepad")
+    print("if you have a note type 1 in welcome to notepad")
+    doc = input(""
+          ""
+          "")
+    print("your note will be saved as",doc)
+    if yesno == "1" :
+        print("doc")
+    OSmenu()
+UserName = input("make a name")
+def OSmenu():
+    print("Welcome To iCal OS 2.1",UserName)
+    print("more apps are in different files")
+    MainMenu = input("What Would You Like To Do? "
+                 " [1].Calculator "
+                 " [2].usb.pyVideo "
+                 " [3].pickup.pyVideo" 
+                 " [4].how to install new files"
+                 " [5].NotePad"
+                 " [6].IDE"
+                 " [7].Settings"
+                 " [8].HighLands"
+                 " [9].HighLands cmds"
+                 " [10].More")
+    if MainMenu == "1" :
+        calculator()
+    if MainMenu == "2" :
+        Usbvideo()
+        OSmenu()
+    if MainMenu == "3" :
+        PickupVideo()
+        OSmenu()
+    if MainMenu == "4":
+      print("to install new files you must..."
+"1. import a defined word for copy and paste or writing it."
+"2. on the menu put a extra number then a if command that uses your word."
+"3. test it.")
+      OSmenu()
+    if MainMenu == "5":
+          notepad()
+    if MainMenu == "6":
+       IDE()
+    if MainMenu == "7":
+       Settings()
+    if MainMenu == "8":
+       HighLands()
+    if MainMenu == "9":
+      print("current cmds are... kill it, make it a pet for the first desions. no, yes for the second decions.")
+      OSmenu
+    if MainMenu == "10":
+     SecondMenu = input("[1].Go to main menu"
+    "")
+     if SecondMenu == "1":
+       OSmenu()
+     if SecondMenu == "2":
+       print("no")
+def Usbvideo():
+    turtle.TurtleScreen
+    turtle.color("blue")
+    turtle.bgcolor("Green")
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.color("white")
+    turtle.left(90)
+    turtle.left(90)
+    turtle.forward(50)
+    turtle.color("blue")
+    turtle.circle(100)
+    turtle.bgcolor("black")
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.left(90)
+    turtle.forward(50)
+    turtle.bgpic("python-powered Turtler.gif")
+    turtle.exitonclick()
+    OSmenu()
 
-    <hr>
+def PickupVideo():
+    turtle.TurtleScreen
+    turtle.bgcolor("black")
+    turtle.color("white")
+    turtle.forward(100)
+    turtle.left(90)
+    turtle.forward(100)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(65)
+    turtle.backward
+    turtle.circle(55)
+    turtle.forward(100)
+    turtle.color("black")
+    turtle.forward(100)
+    turtle.color("red")
+    turtle.circle(40)
+    turtle.bgpic("python-powered Turtler.gif")
+    turtle.exitonclick()
+    OSmenu()
 
-    <div class="search">
-        <input type="text" placeholder="Search..." oninput="">
-        <button><i class="fas fa-search"></i></button>
-    </div>
 
-        <h1>Real Software created by me:</h1>
-            <a href="icalos/site"><img src="images/icalos" alt="icalos2"></a>
 
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6049884042008401" crossorigin="anonymous"></script>
+
+def calculator():
+    print("current mode addition")
+    number1 = input("enter first number")
+    number2 = input("enter second number")
+    vsum = float(number1) + float(number2)
+    print(vsum)
+    print("mode now subtraction")
+    number3 = input("enter first number")
+    number4 = input("enter second number")
+    vsum2 = float(number3) - float(number4)
+    print(vsum2)
+    print("mode now division ")
+    number5 = input("enter first number")
+    number6 = input("enter second number")
+    vsum3 = float(number5) / float(number6)
+    print(vsum3)
+    print("mode now multiplication ")
+    number7 = input("enter first number")
+    number8 = input("enter second number")
+    vsum4 = float(number7) * float(number8)
+    OSmenu()
+def Settings():
+    print("Welcome to settings! Here you can exit or change your OS settings.")
+    print("choose a setting")
+    Setting1 = input("[1]. exit"
+                    " [2]. manage packages")
+    if Setting1 == "2" :
+        print("sorry coming soon!")
+        OSmenu()
+    if Setting1 == "1" :
+        exit()
+turtle.mainloop()
+def WINDGOV():
+   print("please enter password")
+psw = input("")
+if psw == "0e46y7":
+  print("premission granted")
+  main = input("please type a command")
+  if main == "fire":
+   fire = input("chosse who to fire")
+   if fire == "Johnny":
+      print("request sent. Please talk to chairman or local goverment body to complete request.")
+   if fire == "Bruce":
+     print("sorry to inform you but that person is already fired.")
+if main == "cmds":
+    print("sorry to tell you but because of the laws of the nation the only command you are getting out of me is laws.")
+if main == "laws":
+   print("here are the current laws of windland")
+   print("The goverment of windlania belives that the tradions are best so in this nation we will follow religous laws, a conserveitve nation, and god. Those are the main consepts of our country but there is more. Anyone who has changed the body that god created you as is a crimal offence making trans rights and other members of their little club lilegal. CRT or Critical race theoy is banned. GOD IS GREAT ATHESTS WILL NOT BE TREATED VERY NICELY. In our nation's goverment OS (ZhalOS or Zhal) it is not allowed to provide anyone lower than high concil and commands which is why the cmds command whould be the only public command.")
+if main == "iCalOS check up":
+   print("currently iCalOS is doing fine with its latest update being the creation of HighLand beta demo and a few bug fixes. ")
+if main == "secure check":
+   print("the reson we don't allow commands in cmds and why you must enter the password everytime is because this Os gives you to power of everything in the goverment.")</py-repl>
 </body>
 </html>
-
-<script src="script.js"></script>
-        <a title="watching grass grow" href="https://www.watching-grass-grow.com/"></a>
-<a href="https://www.watching-grass-grow.com/"><img style="border:2px solid green;" src="https://www.watching-grass-grow.com/watching-grass-grow.gif" alt="watching grass grow" title="watching grass grow"></a>
