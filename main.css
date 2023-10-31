@@ -2,8 +2,8 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    color: black;
-    body {background-color: orange;}
+    color: #000000;
+    background-color: #FFA500;}
 }
 nav {
     position: fixed;
