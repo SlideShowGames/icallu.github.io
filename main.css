@@ -3,9 +3,6 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
-p {
-  background-image: url("https://i.ytimg.com/vi/Gp3c8mT3x7s/maxresdefault.jpg")
-}
 nav {
     position: fixed;
     top: 0;
@@ -184,3 +181,7 @@ nav h1 {
     font-size: 5vw;
     text-shadow: 0 0 100px #2c7ffc;
     }
+    
+    p {
+  background-image: url("https://i.ytimg.com/vi/Gp3c8mT3x7s/maxresdefault.jpg")
+}
