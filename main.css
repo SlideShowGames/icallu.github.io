@@ -3,14 +3,14 @@
 body {
     font-family: 'Montserrat', sans-serif;
     color: #000000;
-    background-color: #041014;}
+    background-color: #25a5be;}
 }
 nav {
     position: fixed;
     top: 0;
     left: 0;
     backdrop-filter: blur(10px) saturate(200%) brightness(70%);
-    color: #DB8920;
+    color: #25a5be;
     display: flex;
     height: 7vw;
     width: 100%;
