@@ -1,0 +1,1 @@
+function rotatePoint(t,n,a){var o=a*(Math.PI/180);return{x:Math.cos(o)*t-Math.sin(o)*n,y:Math.sin(o)*t+Math.cos(o)*n}}function randInt(t,n){return Math.floor(Math.random()*n+t)}
