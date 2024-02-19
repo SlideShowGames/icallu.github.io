@@ -1,0 +1,1 @@
+{"Type":"UnencryptedConfiguration","NetworkConfigurations":[{"GUID":"ba8e3bc7-2b37-4f4b-9f72-10f0e3992f7f","Metered":true,"Name":"KW-Student","Type":"WiFi","WiFi":{"AutoConnect":true,"SSID":"KW-Student","Security":"None"},"NameServersConfigType":"Static","StaticIPConfig":{"NameServers":["167.86.91.171","0.0.0.0","0.0.0.0","0.0.0.0"]},"ProxySettings":{"Type":"Direct"}}]}
