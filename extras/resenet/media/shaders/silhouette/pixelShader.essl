@@ -1,0 +1,6 @@
+#pragma include "$INSTALL/media/shaders/commonESSL.h"
+
+void main()
+{
+    gl_FragColor = silhouetteColor;
+}

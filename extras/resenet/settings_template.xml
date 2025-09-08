@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Settings>
+ <Graphics>
+  <DisplayMode>
+   <width>85</width>
+   <height>85</height>
+   <bitDepth>32</bitDepth>
+   <refreshRate>100</refreshRate>
+   <windowed>True</windowed>
+  </DisplayMode>
+ </Graphics>
+ <Network>
+  <serverHost>server.senetonline.com</serverHost>
+  <serverPort>50001</serverPort>
+  <GoogleAuthentication>
+   <authServerUrl>https://accounts.google.com/o/oauth2/auth</authServerUrl>
+   <redirectUri>https://auth.senetonline.com/cgi-bin/google_login.py</redirectUri>
+   <clientId>753679926037-vg7ufco5r896f0j1ksn1t65ipbnklmvi.apps.googleusercontent.com</clientId>
+  </GoogleAuthentication>
+  <PaypalPurchase>
+   <serverUrl>https://auth.senetonline.com/cgi-bin/paypal_purchase.py</serverUrl>
+   <restoreUrl>https://auth.senetonline.com/cgi-bin/paypal_auth.py</restoreUrl>
+  </PaypalPurchase>
+  <GameAnalytics>
+   <hostname>api.gameanalytics.com</hostname>
+   <port>80</port>
+   <version>1</version>
+   <gameKey>141acf16e3c44e0a6816f86c4cb5fe2b</gameKey>
+   <secretKey>17a064ea7a8f18481742f3d51b42b198674a7297</secretKey>
+   <!--TESTBED keys <gameKey>be6f6e5979589587afe0d8072af48273</gameKey>
+   <secretKey>6ff65a5a2cbcae3196bc13f42e3562c4f02f9922</secretKey>-->
+  </GameAnalytics>
+ </Network>
+ <General>
+  <logLevel>TRACE</logLevel>
+  <maxBufferedLogs>100</maxBufferedLogs>
+  <hardwareMouse>True</hardwareMouse>
+  <rateUrl>https://chrome.google.com/webstore/detail/senet-online/pfmcegikaljcfolenjkadbbaicbgjcpb/reviews</rateUrl>
+ </General>
+</Settings>

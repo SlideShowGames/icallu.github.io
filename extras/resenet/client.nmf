@@ -1,0 +1,84 @@
+{
+  "files": {
+    "libc.so.e789f81a": {
+      "x86-64": {
+        "url": "_platform_specific/x86-64/lib64/libc.so.e789f81a"
+      },
+      "x86-32": {
+        "url": "_platform_specific/x86-32/lib32/libc.so.e789f81a"
+      }
+    },
+    "libopenal.so.1": {
+      "x86-64": {
+        "url": "_platform_specific/x86-64/lib64/libopenal.so.1"
+      },
+      "x86-32": {
+        "url": "_platform_specific/x86-32/lib32/libopenal.so.1"
+      }
+    },
+    "main.nexe": {
+      "x86-64": {
+        "url": "_platform_specific/x86-64/client_x64.nexe"
+      },
+      "x86-32": {
+        "url": "_platform_specific/x86-32/client_x86.nexe"
+      }
+    },
+    "libstdc++.so.6": {
+      "x86-64": {
+        "url": "_platform_specific/x86-64/lib64/libstdc++.so.6"
+      },
+      "x86-32": {
+        "url": "_platform_specific/x86-32/lib32/libstdc++.so.6"
+      }
+    },
+    "librt.so.e789f81a": {
+      "x86-64": {
+        "url": "_platform_specific/x86-64/lib64/librt.so.e789f81a"
+      },
+      "x86-32": {
+        "url": "_platform_specific/x86-32/lib32/librt.so.e789f81a"
+      }
+    },
+    "libpthread.so.e789f81a": {
+      "x86-64": {
+        "url": "_platform_specific/x86-64/lib64/libpthread.so.e789f81a"
+      },
+      "x86-32": {
+        "url": "_platform_specific/x86-32/lib32/libpthread.so.e789f81a"
+      }
+    },
+    "libm.so.e789f81a": {
+      "x86-64": {
+        "url": "_platform_specific/x86-64/lib64/libm.so.e789f81a"
+      },
+      "x86-32": {
+        "url": "_platform_specific/x86-32/lib32/libm.so.e789f81a"
+      }
+    },
+    "libgcc_s.so.1": {
+      "x86-64": {
+        "url": "_platform_specific/x86-64/lib64/libgcc_s.so.1"
+      },
+      "x86-32": {
+        "url": "_platform_specific/x86-32/lib32/libgcc_s.so.1"
+      }
+    },
+    "libdl.so.e789f81a": {
+      "x86-64": {
+        "url": "_platform_specific/x86-64/lib64/libdl.so.e789f81a"
+      },
+      "x86-32": {
+        "url": "_platform_specific/x86-32/lib32/libdl.so.e789f81a"
+      }
+    }
+  },
+  "program": {
+    "x86-64": {
+      "url": "_platform_specific/x86-64/lib64/runnable-ld.so"
+    },
+    "x86-32": {
+      "url": "_platform_specific/x86-32/lib32/runnable-ld.so"
+    }
+  }
+}

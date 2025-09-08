@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mesh>
+ <VertexBuffer>$INSTALL/media/meshes/senet/high/marker/vertexBuffer.xml</VertexBuffer>
+ <IndexBuffer>$INSTALL/media/meshes/senet/high/marker/indexBuffer.xml</IndexBuffer>
+ <RenderMethods>
+  <!-- Default render method -->
+  <RenderMethod Name="default">
+   <VertexDeclaration>$INSTALL/media/meshes/senet/high/marker/vertexDeclaration.xml</VertexDeclaration>
+   <ShaderProgramCompilation>
+   <VertexShaderDefines>
+   </VertexShaderDefines>
+   <PixelShaderDefines>
+   </PixelShaderDefines>
+    <File>$INSTALL/media/shaders/default_per_vertex/shaderProgramCompilation.xml</File>
+   </ShaderProgramCompilation>
+   <Textures>
+    <Texture Name="colorMap" Width="128" Height="128" MipmapLevels="3" Format="R8G8B8A8">$INSTALL/media/textures/senet/marker/squareDestInvalid.png</Texture>
+   </Textures>
+  </RenderMethod>
+  <!-- Ghost render method -->
+  <RenderMethod Name="ghost">
+   <VertexDeclaration>$INSTALL/media/meshes/senet/high/marker/vertexDeclaration.xml</VertexDeclaration>
+   <ShaderProgramCompilation>
+   <VertexShaderDefines>
+   </VertexShaderDefines>
+   <PixelShaderDefines>
+     <Define Name="APPLY_OPACITY">1</Define>
+   </PixelShaderDefines>
+    <File>$INSTALL/media/shaders/default_per_vertex/shaderProgramCompilationOpacity.xml</File>
+   </ShaderProgramCompilation>
+   <Textures>
+    <Texture Name="colorMap" Width="128" Height="128" MipmapLevels="3" Format="R8G8B8A8">$INSTALL/media/textures/senet/marker/squareDestInvalid.png</Texture>
+   </Textures>
+  </RenderMethod>
+ </RenderMethods>
+ <Bounds>
+     <AABox3 Name="boundingBox">
+         <Vector3 Name="MinPoint">
+             <Elem>-0.47</Elem>
+             <Elem>0.0</Elem>
+             <Elem>-0.47</Elem>
+         </Vector3>
+         <Vector3 Name="MaxPoint">
+             <Elem>0.47</Elem>
+             <Elem>0.004</Elem>
+             <Elem>0.47</Elem>
+         </Vector3>
+     </AABox3>
+ </Bounds>
+</Mesh>

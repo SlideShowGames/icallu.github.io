@@ -1,0 +1,16 @@
+#pragma include "$INSTALL/media/shaders/commonESSL.h"
+
+varying mediump vec4 outTexCoord0;
+
+void main()
+{
+#ifdef SHADOW_MAPPING_SIMPLE
+    mediump vec2 posZW = outTexCoord0.xy;
+    mediump float depth = encodeShadowMapDepth( posZW );
+    gl_FragColor = pack4x8BitFloat( depth );
+#elif defined(SHADOW_MAPPING_EXPONENTIAL)
+    mediump vec3 posInLightSpace = outTexCoord0.xyz;
+    mediump float depth = encodeExponentialShadowMapDepth( posInLightSpace, lightNearFarPlane.x, lightNearFarPlane.y );
+    gl_FragColor = pack4x8BitFloat( depth );
+#endif
+}

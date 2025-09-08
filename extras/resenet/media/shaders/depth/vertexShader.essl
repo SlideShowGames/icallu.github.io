@@ -1,0 +1,15 @@
+#pragma include "$INSTALL/media/shaders/commonESSL.h"
+
+attribute vec3 position;
+
+varying mediump vec4 outTexCoord0;
+
+void main()
+{
+    gl_Position = lightWorldViewProjMat * vec4( position.xyz, 1.0 );
+#ifdef SHADOW_MAPPING_SIMPLE
+    outTexCoord0.xy = gl_Position.zw;
+#elif defined(SHADOW_MAPPING_EXPONENTIAL)
+    outTexCoord0 = lightWorldViewMat * vec4( position.xyz, 1.0 );
+#endif
+}

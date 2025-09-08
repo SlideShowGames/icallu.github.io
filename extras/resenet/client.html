@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+Sample html container for embedded NaCl module.  This file was auto-generated
+by the create_html tool which is part of the NaCl SDK.
+
+The embed tag is setup with PS_STDOUT, PS_STDERR and PS_TTY_PREFIX attributes
+which, for applications linked with ppapi_simple, will cause stdout and stderr
+to be sent to javascript via postMessage.  Also, the postMessage listener
+assumes that all messages sent via postMessage are strings to be displayed in
+the output textarea.
+-->
+<html>
+<head>
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <title>client</title>
+
+</head>
+<body>
+  <h2>Native Client Module: client</h2>
+  <p>Status: <code id="status">Loading</code></p>
+
+  <div id="listener">
+    <embed id="nacl_module" name="client" src="client.nmf"
+           type="application/x-nacl" width=640 height=480
+           PS_TTY_PREFIX="tty:"
+           PS_STDOUT="/dev/tty"
+           PS_STDERR="/dev/tty" >/
+  </div>
+
+  <p>Standard output/error:</p>
+  <textarea id="stdout" rows="25" cols="80">
+</textarea>
+
+  <script>
+listenerDiv = document.getElementById("listener")
+stdout = document.getElementById("stdout")
+nacl_module = document.getElementById("nacl_module")
+
+function updateStatus(message) {
+  document.getElementById("status").innerHTML = message
+}
+
+function addToStdout(message) {
+  stdout.value += message;
+  stdout.scrollTop = stdout.scrollHeight;
+}
+
+function handleMessage(message) {
+  var payload = message.data;
+  var prefix = "tty:";
+  if (typeof(payload) == 'string' && payload.indexOf(prefix) == 0) {
+    addToStdout(payload.slice(prefix.length));
+  }
+}
+
+function handleCrash(event) {
+  updateStatus("Crashed/exited with status: " + nacl_module.exitStatus)
+}
+
+function handleLoad(event) {
+  updateStatus("Loaded")
+}
+
+listenerDiv.addEventListener("load", handleLoad, true);
+listenerDiv.addEventListener("message", handleMessage, true);
+listenerDiv.addEventListener("crash", handleCrash, true);
+  </script>
+</body>
+</html>

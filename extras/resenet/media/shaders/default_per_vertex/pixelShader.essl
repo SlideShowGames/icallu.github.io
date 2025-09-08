@@ -1,0 +1,51 @@
+#pragma include "$INSTALL/media/shaders/commonESSL.h"
+
+varying mediump vec4 outTexCoord0;
+varying mediump vec4 outTexCoord1;
+varying mediump vec4 outTexCoord2;
+
+void main()
+{
+    // Fetch color from texture.
+    mediump vec2 inUV = outTexCoord0.xy;
+    mediump vec4 texColor = texture2D( colorMap, inUV );
+#ifdef APPLY_COLOR
+    texColor.xyz = texColor.xyz + color;
+#endif
+
+#ifdef SHADOW_MAPPING_SIMPLE
+    mediump vec4 posInLightProjSpace = outTexCoord1;
+    mediump float lightShadowFactor = doShadowMapping( posInLightProjSpace, shadowMap, shadowBias );
+#elif defined(SHADOW_MAPPING_EXPONENTIAL)
+    mediump vec4 posInLightProjSpace = outTexCoord1;
+    mediump vec4 posInLightSpace = outTexCoord2;
+    mediump float lightShadowFactor = doExponentialShadowMapping( posInLightProjSpace, posInLightSpace,
+                                      expShadowMap, shadowDarkeningFactor,
+                                      lightNearFarPlane.x, lightNearFarPlane.y );
+#else
+    const mediump float lightShadowFactor = 1.0;
+#endif
+
+    // Ambient
+    mediump vec4 ambient = ambientLightColor * texColor;
+
+    // Calculate light contribution.
+    mediump float lambertian = outTexCoord0.z;
+    mediump vec4 diffuse = lambertian * lightColor * texColor;
+
+    // Specular
+#ifdef SPECULAR_LIGHTING
+    mediump float phong = outTexCoord0.w;
+    mediump vec4 specular = phong * specularMaterial;
+#else
+    const mediump vec4 specular = vec4( 0.0, 0.0, 0.0, 0.0 );
+#endif
+
+    // Set the final pixel color.
+    gl_FragColor = ambient + lightShadowFactor * ( diffuse + specular );
+
+#ifdef APPLY_OPACITY
+    gl_FragColor.w = texColor.w * opacity;
+#endif
+}
+

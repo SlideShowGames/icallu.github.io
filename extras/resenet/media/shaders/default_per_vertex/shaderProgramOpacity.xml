@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShaderProgram>
+  <RenderStates>
+    <AlphaBlendEnable>True</AlphaBlendEnable>
+    <SourceBlend>SourceAlpha</SourceBlend>
+    <DestBlend>InvSourceAlpha</DestBlend>
+    <CullMode>NONE</CullMode>
+  </RenderStates>
+  <VertexShader>$INSTALL/media/shaders/default_per_vertex/vertexShader</VertexShader>
+  <PixelShader>$INSTALL/media/shaders/default_per_vertex/pixelShader</PixelShader>
+</ShaderProgram>

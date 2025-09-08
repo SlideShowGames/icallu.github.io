@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mesh>
+ <VertexBuffer>$INSTALL/media/meshes/senet/low/board/vertexBuffer.xml</VertexBuffer>
+ <IndexBuffer>$INSTALL/media/meshes/senet/low/board/indexBuffer.xml</IndexBuffer>
+ <RenderMethods>
+  <!-- Default render method -->
+  <RenderMethod Name="default">
+   <VertexDeclaration>$INSTALL/media/meshes/senet/low/board/vertexDeclaration.xml</VertexDeclaration>
+   <ShaderProgramCompilation>
+    <VertexShaderDefines>
+    </VertexShaderDefines>
+    <PixelShaderDefines>
+    </PixelShaderDefines>
+    <File>$INSTALL/media/shaders/default_per_vertex/shaderProgramCompilation.xml</File>
+   </ShaderProgramCompilation>
+   <Textures>
+    <Texture Name="colorMap" Width="512" Height="512" MipmapLevels="3" Format="R8G8B8A8">$INSTALL/media/textures/senet/board.png</Texture>
+   </Textures>
+  </RenderMethod>
+ </RenderMethods>
+     <Bounds>
+        <AABox3 Name="boundingBox">
+            <Vector3 Name="MinPoint">
+                <Elem>-5.4834699630737305</Elem>
+                <Elem>-0.00023478269577026367</Elem>
+                <Elem>-1.9902379512786865</Elem>
+            </Vector3>
+            <Vector3 Name="MaxPoint">
+                <Elem>5.505685806274414</Elem>
+                <Elem>2.715543270111084</Elem>
+                <Elem>2.012079954147339</Elem>
+            </Vector3>
+        </AABox3>
+    </Bounds>
+ <Points>
+    <Vector3><Elem>-4.5</Elem><Elem>1.77</Elem><Elem> 1</Elem></Vector3>
+    <Vector3><Elem>-3.5</Elem><Elem>1.77</Elem><Elem> 1</Elem></Vector3>
+    <Vector3><Elem>-2.5</Elem><Elem>1.77</Elem><Elem> 1</Elem></Vector3>
+    <Vector3><Elem>-1.5</Elem><Elem>1.77</Elem><Elem> 1</Elem></Vector3>
+    <Vector3><Elem>-0.5</Elem><Elem>1.77</Elem><Elem> 1</Elem></Vector3>
+    <Vector3><Elem> 0.5</Elem><Elem>1.77</Elem><Elem> 1</Elem></Vector3>
+    <Vector3><Elem> 1.5</Elem><Elem>1.77</Elem><Elem> 1</Elem></Vector3>
+    <Vector3><Elem> 2.5</Elem><Elem>1.77</Elem><Elem> 1</Elem></Vector3>
+    <Vector3><Elem> 3.5</Elem><Elem>1.77</Elem><Elem> 1</Elem></Vector3>
+    <Vector3><Elem> 4.5</Elem><Elem>1.77</Elem><Elem> 1</Elem></Vector3>
+    <Vector3><Elem> 4.5</Elem><Elem>1.77</Elem><Elem> 0</Elem></Vector3>
+    <Vector3><Elem> 3.5</Elem><Elem>1.77</Elem><Elem> 0</Elem></Vector3>
+    <Vector3><Elem> 2.5</Elem><Elem>1.77</Elem><Elem> 0</Elem></Vector3>
+    <Vector3><Elem> 1.5</Elem><Elem>1.77</Elem><Elem> 0</Elem></Vector3>
+    <Vector3><Elem> 0.5</Elem><Elem>1.77</Elem><Elem> 0</Elem></Vector3>
+    <Vector3><Elem>-0.5</Elem><Elem>1.77</Elem><Elem> 0</Elem></Vector3>
+    <Vector3><Elem>-1.5</Elem><Elem>1.77</Elem><Elem> 0</Elem></Vector3>
+    <Vector3><Elem>-2.5</Elem><Elem>1.77</Elem><Elem> 0</Elem></Vector3>
+    <Vector3><Elem>-3.5</Elem><Elem>1.77</Elem><Elem> 0</Elem></Vector3>
+    <Vector3><Elem>-4.5</Elem><Elem>1.77</Elem><Elem> 0</Elem></Vector3>
+    <Vector3><Elem>-4.5</Elem><Elem>1.77</Elem><Elem>-1</Elem></Vector3>
+    <Vector3><Elem>-3.5</Elem><Elem>1.77</Elem><Elem>-1</Elem></Vector3>
+    <Vector3><Elem>-2.5</Elem><Elem>1.77</Elem><Elem>-1</Elem></Vector3>
+    <Vector3><Elem>-1.5</Elem><Elem>1.77</Elem><Elem>-1</Elem></Vector3>
+    <Vector3><Elem>-0.5</Elem><Elem>1.77</Elem><Elem>-1</Elem></Vector3>
+    <Vector3><Elem> 0.5</Elem><Elem>2.07</Elem><Elem>-1</Elem></Vector3>
+    <Vector3><Elem> 1.5</Elem><Elem>1.49</Elem><Elem>-1</Elem></Vector3>
+    <Vector3><Elem> 2.5</Elem><Elem>1.77</Elem><Elem>-1</Elem></Vector3>
+    <Vector3><Elem> 3.5</Elem><Elem>1.77</Elem><Elem>-1</Elem></Vector3>
+    <Vector3><Elem> 4.5</Elem><Elem>1.77</Elem><Elem>-1</Elem></Vector3>
+    <Vector3><Elem> 5.5</Elem><Elem>1.77</Elem><Elem>-1</Elem></Vector3>
+ </Points>
+</Mesh>

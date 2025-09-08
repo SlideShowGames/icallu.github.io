@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShaderProgram>
+  <RenderStates>
+      <CullMode>CW</CullMode>
+  </RenderStates>
+  <VertexShader>$INSTALL/media/shaders/silhouette/vertexShader</VertexShader>
+  <PixelShader>$INSTALL/media/shaders/silhouette/pixelShader</PixelShader>
+</ShaderProgram>

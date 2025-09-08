@@ -1,0 +1,4 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+.playcanvas.com	TRUE	/	FALSE	1999999999	pc_auth	mgycx518ux8ri4vhkctx35tl71oqjf0ilaafxn5tcoe3bhzefqcg8n15qcmw4ms3
+

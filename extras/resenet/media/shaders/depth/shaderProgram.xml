@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ShaderProgram>
+  <RenderStates>
+      <!-- <CullMode>CW</CullMode> -->
+  </RenderStates>
+  <VertexShader>$INSTALL/media/shaders/depth/vertexShader</VertexShader>
+  <PixelShader>$INSTALL/media/shaders/depth/pixelShader</PixelShader>
+</ShaderProgram>

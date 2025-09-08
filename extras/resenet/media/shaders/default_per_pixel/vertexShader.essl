@@ -1,0 +1,47 @@
+#pragma include "$INSTALL/media/shaders/commonESSL.h"
+
+attribute vec3 position;
+attribute vec3 normal;
+#ifdef NORMAL_MAPPING
+attribute vec3 tangent;
+attribute vec3 binormal;
+#endif
+attribute vec2 texCoord0;
+
+varying mediump vec4 outTexCoord0;
+varying mediump vec4 outTexCoord1;
+varying mediump vec3 outTexCoord2;
+varying mediump vec3 outTexCoord3;
+varying mediump vec4 outTexCoord4;
+varying mediump vec4 outTexCoord5;
+
+void main()
+{
+    // Transform vertex.
+    mediump vec4 inPos = vec4( position.xyz, 1.0 );
+    gl_Position = worldViewProjMat * inPos;
+
+    // Copy the UV coords.
+    mediump vec2 inUV = vec2( texCoord0.x, 1.0 - texCoord0.y );
+
+    // Pass position, normal and UV to pixel shader.
+    outTexCoord0 = vec4( position.xyz, inUV.x );
+    outTexCoord1 = vec4( normal.xyz, inUV.y );
+    
+#ifdef NORMAL_MAPPING
+    outTexCoord2 = tangent;
+    outTexCoord3 = binormal;
+#endif
+
+#ifdef SHADOW_MAPPING_SIMPLE
+    // Tranform position to directional lights post projection space.
+    // They will be used on the pixel shader for shadow mapping.
+    outTexCoord4 = lightWorldViewProjMat * inPos;
+#elif defined(SHADOW_MAPPING_EXPONENTIAL)
+    outTexCoord4 = lightWorldViewProjMat * inPos;
+    outTexCoord5 = lightWorldViewMat * inPos;
+#endif
+}
+
+
+

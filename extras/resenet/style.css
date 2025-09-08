@@ -1,0 +1,48 @@
+#nacl_inst
+{
+position:absolute;
+}
+
+body
+{
+background-color:black;
+}
+
+@font-face {
+    font-family: CaesarDressing;
+    src: 'media/fonts/Caesar Dressing.ttf';
+}
+
+@font-face {
+    font-family: Scada;
+    src: 'media/fonts/Scada.ttf';
+}
+
+#load_prog
+{
+z-index:1;
+position:absolute;
+}
+
+#error_template
+{
+position:absolute;
+overflow: hidden
+}
+
+#error_img
+{
+width: 853px;
+height: 853px;
+margin-left:-1px;
+margin-top:-563px;
+}
+
+#error_text
+{
+color:#da7f1b;
+z-index:2;
+font-size:22px;
+font-family:"Scada", Helvetica, sans-serif;
+text-align:center;
+}

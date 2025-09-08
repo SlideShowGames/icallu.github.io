@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VertexDeclaration>
+  <VertexElements>
+    <VertexElement stream="0" offset="0" type="float3" usage="position" usageIndex="0"></VertexElement>
+    <VertexElement stream="0" offset="0" type="unused" usage="unused" usageIndex="0"></VertexElement>
+  </VertexElements>
+</VertexDeclaration>

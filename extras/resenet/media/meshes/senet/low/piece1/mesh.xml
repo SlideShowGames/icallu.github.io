@@ -1,0 +1,73 @@
+<Mesh>
+    <VertexBuffer>$INSTALL/media/meshes/senet/low/piece1/vertexBuffer.xml</VertexBuffer>
+    <IndexBuffer>$INSTALL/media/meshes/senet/low/piece1/indexBuffer.xml</IndexBuffer>
+    <RenderMethods>
+        <!-- Default render method -->
+        <RenderMethod Name="default">
+            <VertexDeclaration>$INSTALL/media/meshes/senet/low/piece1/vertexDeclaration.xml</VertexDeclaration>
+            <ShaderProgramCompilation>
+                <VertexShaderDefines>
+                </VertexShaderDefines>
+                <PixelShaderDefines>
+                </PixelShaderDefines>
+                <File>$INSTALL/media/shaders/default_per_vertex/shaderProgramCompilation.xml</File>
+            </ShaderProgramCompilation>
+            <Textures>
+                <Texture Name="colorMap" Width="256" Height="256" MipmapLevels="3" Format="R8G8B8A8">$INSTALL/media/textures/senet/piece1.png</Texture>
+            </Textures>
+        </RenderMethod>
+        <!-- Ghost render method -->
+        <RenderMethod Name="ghost">
+            <VertexDeclaration>$INSTALL/media/meshes/senet/low/piece1/vertexDeclaration.xml</VertexDeclaration>
+            <ShaderProgramCompilation>
+                <VertexShaderDefines>
+                </VertexShaderDefines>
+                <PixelShaderDefines>
+                  <Define Name="APPLY_OPACITY">1</Define>
+                </PixelShaderDefines>
+                <File>$INSTALL/media/shaders/default_per_vertex/shaderProgramCompilationOpacity.xml</File>
+            </ShaderProgramCompilation>
+            <Textures>
+                <Texture Name="colorMap" Width="256" Height="256" MipmapLevels="3" Format="R8G8B8A8">$INSTALL/media/textures/senet/piece1.png</Texture>
+            </Textures>
+        </RenderMethod>
+        <!-- Highlight render method -->
+        <RenderMethod Name="highlight">
+            <VertexDeclaration>$INSTALL/media/meshes/senet/low/piece1/vertexDeclaration.xml</VertexDeclaration>
+            <ShaderProgramCompilation>
+                <VertexShaderDefines>
+                </VertexShaderDefines>
+                <PixelShaderDefines>
+                  <Define Name="APPLY_COLOR">1</Define>
+                </PixelShaderDefines>
+                <File>$INSTALL/media/shaders/default_per_vertex/shaderProgramCompilation.xml</File>
+            </ShaderProgramCompilation>
+            <Textures>
+                <Texture Name="colorMap" Width="256" Height="256" MipmapLevels="3" Format="R8G8B8A8">$INSTALL/media/textures/senet/piece1.png</Texture>
+            </Textures>
+        </RenderMethod>
+        <!-- Silhouette method -->
+        <RenderMethod Name="silhouette">
+            <VertexDeclaration>$INSTALL/media/meshes/senet/low/piece1/silhouetteVertexDeclaration.xml</VertexDeclaration>
+            <ShaderProgramCompilation>
+                <File>$INSTALL/media/shaders/silhouette/shaderProgramCompilation.xml</File>
+            </ShaderProgramCompilation>
+            <Textures>
+            </Textures>
+        </RenderMethod>
+    </RenderMethods>
+    <Bounds>
+        <AABox3 Name="boundingBox">
+            <Vector3 Name="MinPoint">
+                <Elem>-0.44603797793388367</Elem>
+                <Elem>-0.07281124591827393</Elem>
+                <Elem>-0.36418747901916504</Elem>
+            </Vector3>
+            <Vector3 Name="MaxPoint">
+                <Elem>0.4460478127002716</Elem>
+                <Elem>1.951462745666504</Elem>
+                <Elem>0.3412179946899414</Elem>
+            </Vector3>
+        </AABox3>
+    </Bounds>
+</Mesh>

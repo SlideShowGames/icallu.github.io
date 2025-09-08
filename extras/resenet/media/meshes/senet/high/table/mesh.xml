@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mesh>
+ <VertexBuffer>$INSTALL/media/meshes/senet/high/table/vertexBuffer_tangents.xml</VertexBuffer>
+ <IndexBuffer>$INSTALL/media/meshes/senet/high/table/indexBuffer.xml</IndexBuffer>
+ <RenderMethods>
+  <!-- Default render method -->
+  <RenderMethod Name="default">
+   <VertexDeclaration>$INSTALL/media/meshes/senet/high/table/vertexDeclaration_tangents.xml</VertexDeclaration>
+   <ShaderProgramCompilation>
+    <VertexShaderDefines>
+      <Define Name="SHADOW_MAPPING_EXPONENTIAL">1</Define>
+      <Define Name="SPECULAR_LIGHTING">1</Define>
+      <Define Name="NORMAL_MAPPING">1</Define>
+    </VertexShaderDefines>
+    <PixelShaderDefines>
+      <Define Name="SHADOW_MAPPING_EXPONENTIAL">1</Define>
+      <Define Name="SPECULAR_LIGHTING">1</Define>
+      <Define Name="NORMAL_MAPPING">1</Define>
+    </PixelShaderDefines>
+    <File>$INSTALL/media/shaders/default_per_pixel/shaderProgramCompilation.xml</File>
+   </ShaderProgramCompilation>
+   <Textures>
+    <Texture Name="colorMap" Width="1024" Height="1024" MipmapLevels="3" Format="R8G8B8A8">$INSTALL/media/textures/senet/table/texture.png</Texture>
+    <Texture Name="normalMap" Width="1024" Height="1024" MipmapLevels="3" Format="R8G8B8A8">$INSTALL/media/textures/senet/table/normal.png</Texture>
+   </Textures>
+  </RenderMethod>
+  <!-- Depth render method -->
+  <RenderMethod Name="depth">
+   <VertexDeclaration>$INSTALL/media/meshes/senet/high/table/depthVertexDeclaration.xml</VertexDeclaration>
+   <ShaderProgramCompilation>
+    <VertexShaderDefines>
+     <Define Name="SHADOW_MAPPING_EXPONENTIAL">1</Define>
+    </VertexShaderDefines>
+    <PixelShaderDefines>
+     <Define Name="SHADOW_MAPPING_EXPONENTIAL">1</Define>
+    </PixelShaderDefines>
+    <File>$INSTALL/media/shaders/depth/shaderProgramCompilation.xml</File>
+   </ShaderProgramCompilation>
+   <Textures>
+   </Textures>
+  </RenderMethod>
+ </RenderMethods>
+ <Bounds><AABox3 Name="boundingBox"><Vector3 Name="MinPoint"><Elem>-25.0</Elem><Elem>-0.3999999761581421</Elem><Elem>-25.0</Elem></Vector3><Vector3 Name="MaxPoint"><Elem>25.0</Elem><Elem>0.3999999761581421</Elem><Elem>25.0</Elem></Vector3></AABox3></Bounds>
+ <Points>
+    <Vector3><Elem>-6.0</Elem><Elem>0.5</Elem><Elem>4.0</Elem></Vector3>
+    <Vector3><Elem>-5.6</Elem><Elem>0.5</Elem><Elem>6.2</Elem></Vector3>
+    <Vector3><Elem>-5.0</Elem><Elem>0.5</Elem><Elem>5.0</Elem></Vector3>
+    <Vector3><Elem>-4.3</Elem><Elem>0.5</Elem><Elem>5.7</Elem></Vector3>
+    <Vector3><Elem>-3.5</Elem><Elem>0.5</Elem><Elem>5.0</Elem></Vector3>
+    <Vector3><Elem> 3.5</Elem><Elem>0.5</Elem><Elem>5.0</Elem></Vector3>
+    <Vector3><Elem> 4.3</Elem><Elem>0.5</Elem><Elem>5.7</Elem></Vector3>
+    <Vector3><Elem> 5.0</Elem><Elem>0.5</Elem><Elem>5.0</Elem></Vector3>
+    <Vector3><Elem> 5.6</Elem><Elem>0.5</Elem><Elem>6.2</Elem></Vector3>
+    <Vector3><Elem> 6.0</Elem><Elem>0.5</Elem><Elem>4.0</Elem></Vector3>
+ </Points>
+</Mesh>

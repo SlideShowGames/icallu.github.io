@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mesh>
+ <VertexBuffer>$INSTALL/media/meshes/senet/high/stick/vertexBuffer.xml</VertexBuffer>
+ <IndexBuffer>$INSTALL/media/meshes/senet/high/stick/indexBuffer.xml</IndexBuffer>
+ <RenderMethods>
+  <!-- Default render method -->
+  <RenderMethod Name="default">
+   <VertexDeclaration>$INSTALL/media/meshes/senet/high/stick/vertexDeclaration.xml</VertexDeclaration>
+   <ShaderProgramCompilation>
+       <VertexShaderDefines>
+       </VertexShaderDefines>
+       <PixelShaderDefines>
+       </PixelShaderDefines>
+    <File>$INSTALL/media/shaders/default_per_vertex/shaderProgramCompilation.xml</File>
+   </ShaderProgramCompilation>
+   <Textures>
+    <Texture Name="colorMap" Width="256" Height="256" MipmapLevels="3" Format="R8G8B8A8">$INSTALL/media/textures/senet/stick.png</Texture>
+   </Textures>
+  </RenderMethod>
+  <RenderMethod Name="highlight">
+   <VertexDeclaration>$INSTALL/media/meshes/senet/high/stick/vertexDeclaration.xml</VertexDeclaration>
+   <ShaderProgramCompilation>
+       <VertexShaderDefines>
+       </VertexShaderDefines>
+       <PixelShaderDefines>
+         <Define Name="APPLY_COLOR">1</Define>
+       </PixelShaderDefines>
+    <File>$INSTALL/media/shaders/default_per_vertex/shaderProgramCompilation.xml</File>
+   </ShaderProgramCompilation>
+   <Textures>
+    <Texture Name="colorMap" Width="256" Height="256" MipmapLevels="3" Format="R8G8B8A8">$INSTALL/media/textures/senet/stick.png</Texture>
+   </Textures>
+  </RenderMethod>
+  <!-- Silhouette method -->
+  <RenderMethod Name="silhouette">
+      <VertexDeclaration>$INSTALL/media/meshes/senet/high/stick/silhouetteVertexDeclaration.xml</VertexDeclaration>
+      <ShaderProgramCompilation>
+          <File>$INSTALL/media/shaders/silhouette/shaderProgramCompilation.xml</File>
+      </ShaderProgramCompilation>
+      <Textures>
+      </Textures>
+  </RenderMethod>
+ </RenderMethods>
+    <Bounds><AABox3 Name="boundingBox"><Vector3 Name="MinPoint"><Elem>-1.1832406520843506</Elem><Elem>-0.07985880225896835</Elem><Elem>-0.1314712017774582</Elem></Vector3><Vector3 Name="MaxPoint"><Elem>1.1832406520843506</Elem><Elem>0.07931412011384964</Elem><Elem>0.1314712017774582</Elem></Vector3></AABox3></Bounds>
+</Mesh>

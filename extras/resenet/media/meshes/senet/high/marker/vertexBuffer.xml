@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VertexBuffer>
+  <VertexDesc>
+    <Component>float32</Component>
+    <Component>float32</Component>
+    <Component>float32</Component>
+    <Component>float32</Component>
+    <Component>float32</Component>
+    <Component>float32</Component>
+    <Component>float32</Component>
+    <Component>float32</Component>
+  </VertexDesc>
+  <!-- L/R for X axis, U/D for Y axis, F/R for Z axis -->
+  <Vertices>
+    <!-- TOP QUAD -->
+    <!-- LeftUpFront -->
+    <Vertex>
+      <Component>-0.47</Component>
+      <Component>0.004</Component>
+      <Component>0.47</Component>
+      <Component>0.0</Component>
+      <Component>1.0</Component>
+      <Component>0.0</Component>
+      <Component>0.0</Component>
+      <Component>0.0</Component>
+    </Vertex>
+    <!-- RightUpFront -->
+    <Vertex>
+      <Component>0.47</Component>
+      <Component>0.004</Component>
+      <Component>0.47</Component>
+      <Component>0.0</Component>
+      <Component>1.0</Component>
+      <Component>0.0</Component>
+      <Component>1.0</Component>
+      <Component>0.0</Component>
+    </Vertex>
+    <!-- RightUpRear -->
+    <Vertex>
+      <Component>0.47</Component>
+      <Component>0.004</Component>
+      <Component>-0.47</Component>
+      <Component>0.0</Component>
+      <Component>1.0</Component>
+      <Component>0.0</Component>
+      <Component>1.0</Component>
+      <Component>1.0</Component>
+    </Vertex>
+    <!-- LeftUpRear -->
+    <Vertex>
+      <Component>-0.47</Component>
+      <Component>0.004</Component>
+      <Component>-0.47</Component>
+      <Component>0.0</Component>
+      <Component>1.0</Component>
+      <Component>0.0</Component>
+      <Component>0.0</Component>
+      <Component>1.0</Component>
+    </Vertex>
+  </Vertices>
+</VertexBuffer>

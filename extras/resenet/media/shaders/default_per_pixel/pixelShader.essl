@@ -1,0 +1,64 @@
+#pragma include "$INSTALL/media/shaders/commonESSL.h"
+
+varying mediump vec4 outTexCoord0;
+varying mediump vec4 outTexCoord1;
+varying mediump vec3 outTexCoord2;
+varying mediump vec3 outTexCoord3;
+varying mediump vec4 outTexCoord4;
+varying mediump vec4 outTexCoord5;
+
+void main()
+{
+    // Fetch color from texture.
+    mediump vec2 inUV = vec2( outTexCoord0.w, outTexCoord1.w );
+    mediump vec4 texColor = texture2D( colorMap, inUV );
+#ifdef APPLY_COLOR
+    texColor.xyz = texColor.xyz + color;
+#endif
+
+#ifdef SHADOW_MAPPING_SIMPLE
+    mediump vec4 posInLightProjSpace = outTexCoord4;
+    mediump float lightShadowFactor = doShadowMapping( posInLightProjSpace, shadowMap, shadowBias );
+#elif defined(SHADOW_MAPPING_EXPONENTIAL)
+    mediump vec4 posInLightProjSpace = outTexCoord4;
+    mediump vec4 posInLightSpace = outTexCoord5;
+    mediump float lightShadowFactor = doExponentialShadowMapping( posInLightProjSpace, posInLightSpace,
+                                      expShadowMap, shadowDarkeningFactor,
+                                      lightNearFarPlane.x, lightNearFarPlane.y );
+#else
+    const mediump float lightShadowFactor = 1.0;
+#endif
+
+    // Ambient
+    mediump vec4 ambient = ambientLightColor * texColor;
+
+    // Calculate light contribution.
+#ifdef NORMAL_MAPPING
+    mediump vec3 tangent = outTexCoord2;
+    mediump vec3 binormal = outTexCoord3;
+    mediump vec3 normalIn = outTexCoord1.xyz;
+    mediump vec3 normal = doNormalMapping( normalize( tangent ),
+                                   normalize( binormal ),
+                                   normalize( normalIn ),
+                                   normalMap, inUV );
+#else
+    mediump vec3 normal = outTexCoord1.xyz;
+#endif
+    mediump vec4 diffuse = lambertian( normal, localLightVector ) * lightColor * texColor;
+
+    // Specular
+#ifdef SPECULAR_LIGHTING
+    mediump vec3 position = outTexCoord0.xyz;
+    mediump vec4 specular = phong( position, normal, localCameraPos, localLightVector, specularPower ) * specularMaterial;
+#else
+    const mediump vec4 specular = vec4( 0.0, 0.0, 0.0, 0.0 );
+#endif
+
+    // Set the final pixel color.
+    gl_FragColor = ambient + lightShadowFactor * ( diffuse + specular );
+
+#ifdef APPLY_OPACITY
+    gl_FragColor.w = texColor.w * opacity;
+#endif
+}
+

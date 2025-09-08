@@ -1,0 +1,40 @@
+#pragma include "$INSTALL/media/shaders/commonESSL.h"
+
+attribute vec3 position;
+attribute vec3 normal;
+attribute vec2 texCoord0;
+
+varying mediump vec4 outTexCoord0;
+varying mediump vec4 outTexCoord1;
+varying mediump vec4 outTexCoord2;
+
+void main()
+{
+    // Transform vertex.
+    mediump vec4 inPos = vec4( position.xyz, 1.0 );
+    gl_Position = worldViewProjMat * inPos;
+
+    // Calcuate diffuse lighting.
+    mediump float diffuse = lambertian( normal, localLightVector );
+    // Copy the UV coords.
+    vec2 inUV = vec2( texCoord0.x, 1.0 - texCoord0.y );
+
+    // Calcuate specular lighting.
+#ifdef SPECULAR_LIGHTING
+    mediump float specular = phong( position, normal, localCameraPos, localLightVector, specularPower );
+#else
+    mediump float specular = 0.0;
+#endif
+
+    outTexCoord0 = vec4( inUV.x, inUV.y, diffuse, specular );
+
+#ifdef SHADOW_MAPPING_SIMPLE
+    // Tranform position to directional lights post projection space.
+    // They will be used on the pixel shader for shadow mapping.
+    outTexCoord1 = lightWorldViewProjMat * inPos;
+#elif defined(SHADOW_MAPPING_EXPONENTIAL)
+    outTexCoord1 = lightWorldViewProjMat * inPos;
+    outTexCoord2 = lightWorldViewMat * inPos;
+#endif
+
+}
