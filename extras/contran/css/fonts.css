@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'cornpop';
+  src: url('../fonts/CornPop.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'deco';
+  src: url('../fonts/decodividers_sg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'parisish';
+  src: url('../fonts/Parisish.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poiret One';
+  src: url('../fonts/PoiretOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
