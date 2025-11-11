@@ -32841,9 +32841,6 @@ var flixel_system_FlxBasePreloader = function(MinDisplayTime,AllowedURLs) {
 	this._urlChecked = false;
 	this._loaded = false;
 	this._percent = 0;
-	this.siteLockBodyText = "It appears the website you are using is hosting an unauthorized copy of this game. " + "Storage or redistribution of this content, without the express permission of the " + "developer or other copyright holder, is prohibited under copyright law.\n\n" + "Thank you for your interest in this game! Please support the developer by " + "visiting the following website to play the game:";
-	this.siteLockTitleText = "Sorry.";
-	this.siteLockURLIndex = 0;
 	this.minDisplayTime = 0;
 	flixel_system__$FlxBasePreloader_DefaultPreloader.call(this);
 	this.minDisplayTime = MinDisplayTime;
@@ -32860,9 +32857,6 @@ flixel_system_FlxBasePreloader.__super__ = flixel_system__$FlxBasePreloader_Defa
 flixel_system_FlxBasePreloader.prototype = $extend(flixel_system__$FlxBasePreloader_DefaultPreloader.prototype,{
 	minDisplayTime: null
 	,allowedURLs: null
-	,siteLockURLIndex: null
-	,siteLockTitleText: null
-	,siteLockBodyText: null
 	,_percent: null
 	,_width: null
 	,_height: null
@@ -32878,8 +32872,7 @@ flixel_system_FlxBasePreloader.prototype = $extend(flixel_system__$FlxBasePreloa
 		openfl_Lib.get_current().stage.align = 6;
 		this.create();
 		this.addEventListener("enterFrame",$bind(this,this.onEnterFrame));
-		this.checkSiteLock();
-	}
+
 	,onUpdate: function(bytesLoaded,bytesTotal) {
 		this._percent = bytesTotal != 0 ? bytesLoaded / bytesTotal : 0;
 	}
@@ -32918,143 +32911,6 @@ flixel_system_FlxBasePreloader.prototype = $extend(flixel_system__$FlxBasePreloa
 	}
 	,loadBitmapData: function(bitmapDataClass,onLoad) {
 		return Type.createInstance(bitmapDataClass,[0,0,true,-1,onLoad]);
-	}
-	,checkSiteLock: function() {
-		if(this._urlChecked) {
-			return;
-		}
-		if(!this.isHostUrlAllowed()) {
-			this.removeChildren();
-			this.removeEventListener("enterFrame",$bind(this,this.onEnterFrame));
-			this.createSiteLockFailureScreen();
-		} else {
-			this._urlChecked = true;
-		}
-	}
-	,createSiteLockFailureScreen: function() {
-		this.addChild(this.createSiteLockFailureBackground(16777215,15066597));
-		this.addChild(this.createSiteLockFailureIcon(15066597,0.9));
-		this.addChild(this.createSiteLockFailureText(30));
-	}
-	,createSiteLockFailureBackground: function(innerColor,outerColor) {
-		var shape = new openfl_display_Shape();
-		var graphics = shape.get_graphics();
-		graphics.clear();
-		var fillMatrix = new openfl_geom_Matrix();
-		fillMatrix.createGradientBox(1,1,0,-0.5,-0.5);
-		var scaling = Math.max(this.stage.stageWidth,this.stage.stageHeight);
-		fillMatrix.scale(scaling,scaling);
-		fillMatrix.translate(0.5 * this.stage.stageWidth,0.5 * this.stage.stageHeight);
-		graphics.beginGradientFill(1,[innerColor,outerColor],[1,1],[0,255],fillMatrix);
-		graphics.drawRect(0,0,this.stage.stageWidth,this.stage.stageHeight);
-		graphics.endFill();
-		return shape;
-	}
-	,createSiteLockFailureIcon: function(color,scale) {
-		var shape = new openfl_display_Shape();
-		var graphics = shape.get_graphics();
-		graphics.clear();
-		graphics.beginFill(color);
-		var array = [1,6,2,2,2,6,6,2,2,2,6,1,6,2,6,2,6,2,6,1,6,6,2,2,2,6,6];
-		var vector = openfl__$Vector_Vector_$Impl_$.toIntVector(null);
-		var _g1 = 0;
-		var _g = array.length;
-		while(_g1 < _g) {
-			var i = _g1++;
-			vector.set(i,array[i]);
-		}
-		var tmp = vector;
-		var array1 = [120.0,0,164,0,200,35,200,79,200,130,160,130,160,79,160,57,142,40,120,40,97,40,79,57,79,79,80,130,40,130,40,79,40,35,75,0,120,0,220,140,231,140,240,148,240,160,240,300,240,311,231,320,220,320,20,320,8,320,0,311,0,300,0,160,0,148,8,140,20,140,120,190,108,190,100,198,100,210,100,217,104,223,110,227,110,270,130,270,130,227,135,223,140,217,140,210,140,198,131,190,120,190];
-		var vector1 = openfl__$Vector_Vector_$Impl_$.toFloatVector(null);
-		var _g11 = 0;
-		var _g2 = array1.length;
-		while(_g11 < _g2) {
-			var i1 = _g11++;
-			vector1.set(i1,array1[i1]);
-		}
-		graphics.drawPath(tmp,vector1,1);
-		graphics.endFill();
-		var transformMatrix = new openfl_geom_Matrix();
-		transformMatrix.translate(-0.5 * shape.get_width(),-0.5 * shape.get_height());
-		var scaling = scale * Math.min(this.stage.stageWidth / shape.get_width(),this.stage.stageHeight / shape.get_height());
-		transformMatrix.scale(scaling,scaling);
-		transformMatrix.translate(0.5 * this.stage.stageWidth,0.5 * this.stage.stageHeight);
-		shape.get_transform().set_matrix(transformMatrix);
-		return shape;
-	}
-	,createSiteLockFailureText: function(margin) {
-		var sprite = new openfl_display_Sprite();
-		var bounds = new openfl_geom_Rectangle(0,0,this.stage.stageWidth,this.stage.stageHeight);
-		bounds.inflate(-margin,-margin);
-		var titleText = new openfl_text_TextField();
-		var titleTextFormat = new openfl_text_TextFormat("_sans",33,3355443,true);
-		titleTextFormat.align = 3;
-		titleText.set_defaultTextFormat(titleTextFormat);
-		titleText.set_selectable(false);
-		titleText.set_width(bounds.width);
-		titleText.set_text(this.siteLockTitleText);
-		var bodyText = new openfl_text_TextField();
-		var bodyTextFormat = new openfl_text_TextFormat("_sans",22,3355443);
-		bodyTextFormat.align = 2;
-		bodyText.set_defaultTextFormat(bodyTextFormat);
-		bodyText.set_multiline(true);
-		bodyText.set_wordWrap(true);
-		bodyText.set_selectable(false);
-		bodyText.set_width(bounds.width);
-		bodyText.set_text(this.siteLockBodyText);
-		var hyperlinkText = new openfl_text_TextField();
-		var hyperlinkTextFormat = new openfl_text_TextFormat("_sans",22,7247820,true,false,true);
-		hyperlinkTextFormat.align = 0;
-		hyperlinkTextFormat.url = this.allowedURLs[this.siteLockURLIndex];
-		hyperlinkText.set_defaultTextFormat(hyperlinkTextFormat);
-		hyperlinkText.set_selectable(true);
-		hyperlinkText.set_width(bounds.width);
-		hyperlinkText.set_text(this.allowedURLs[this.siteLockURLIndex]);
-		this.adjustSiteLockTextFields(titleText,bodyText,hyperlinkText);
-		var gutterSize = 4;
-		titleText.set_height(titleText.get_textHeight() + gutterSize);
-		bodyText.set_height(bodyText.get_textHeight() + gutterSize);
-		hyperlinkText.set_height(hyperlinkText.get_textHeight() + gutterSize);
-		titleText.set_x(bodyText.set_x(hyperlinkText.set_x(bounds.get_left())));
-		titleText.set_y(bounds.get_top());
-		bodyText.set_y(titleText.get_y() + 2.0 * titleText.get_height());
-		hyperlinkText.set_y(bodyText.get_y() + bodyText.get_height() + hyperlinkText.get_height());
-		sprite.addChild(titleText);
-		sprite.addChild(bodyText);
-		sprite.addChild(hyperlinkText);
-		return sprite;
-	}
-	,adjustSiteLockTextFields: function(titleText,bodyText,hyperlinkText) {
-	}
-	,goToMyURL: function(e) {
-		if(this.allowedURLs[this.siteLockURLIndex] != "localhost") {
-			var URL = this.allowedURLs[this.siteLockURLIndex];
-			var prefix = "";
-			if(!new EReg("^https?://","").match(URL)) {
-				prefix = "http://";
-			}
-			openfl_Lib.getURL(new openfl_net_URLRequest(prefix + URL),"_blank");
-		} else {
-			openfl_Lib.getURL(new openfl_net_URLRequest(this.allowedURLs[this.siteLockURLIndex]));
-		}
-	}
-	,isHostUrlAllowed: function() {
-		if(this.allowedURLs.length == 0) {
-			return true;
-		}
-		var homeURL = window.location.href;
-		var homeDomain = flixel_util_FlxStringUtil.getDomain(homeURL);
-		var _g = 0;
-		var _g1 = this.allowedURLs;
-		while(_g < _g1.length) {
-			var allowedURL = _g1[_g];
-			++_g;
-			var allowedDomain = flixel_util_FlxStringUtil.getDomain(allowedURL);
-			if(allowedDomain == homeDomain) {
-				return true;
-			}
-		}
-		return false;
 	}
 	,__class__: flixel_system_FlxBasePreloader
 });
